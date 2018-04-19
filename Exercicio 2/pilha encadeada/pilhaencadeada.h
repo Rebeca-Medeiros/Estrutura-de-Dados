@@ -3,7 +3,7 @@
 
 //incio das structs
 
-typedef struct int tElemento;
+typedef int tElemento;
 
 typedef struct No{
     tElemento e;
@@ -15,4 +15,17 @@ typedef struct{
 } tPilha;
 
 //fim das structs
+
+//operações essenciais
+extern void CriaPilha(tPilha *pilha);//ok
+
+extern int PilhaVazia(const tPilha *pilha);//ok
+
+extern tElemento ElementoTopo();
+
+extern void Empilha(tPilha *pilha, tElemento item);
+
+extern tElemento Desempilha(tPilha *pilha);
+
+#endif // PILHAENCADEADA_H
 
