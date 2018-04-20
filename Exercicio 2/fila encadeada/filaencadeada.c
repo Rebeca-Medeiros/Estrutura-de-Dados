@@ -2,49 +2,66 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void CriaFila(tFila *fila){
-    fila->inicio = NULL;
-}
+tNo *getNo(tElemento v){
+    tNo *n;
 
-int FilaVazia(const tFila *fila){
-    return fila->inicio == fila->fim;
-}
+    n = malloc(sizeof(tNo));
 
-void Acrescenta(tFila *fila, tElemento item){
-    tFila *novo;
-
-    novo = (tFila *) malloc(sizeof(tFila));
-
-    novo->fim->e = item;
-
-    fila->fim->proximo = NULL;
-
-    if(novo->inicio == NULL){
-        novo->inicio = novo->fim;
-        novo->fim = novo;
-    } else {
-        novo->fim->proximo = novo;
-        fila->fim = novo;
+    if(n != NULL){
+        n->e = v;
+        n->proximo;
     }
 
-    printf("\n Acrescentado com sucesso");
+    return n;
 }
 
-tElemento Retira(tFila *fila){
-    tFila *tremovido;
+void CriaFila(const tNo **fila){
+    *fila = NULL;
+}
+
+tElemento ElementoFrente(const tNo *fila){
+    printf("\n Primeiro elemento: %d", inicio->e);
+}
+
+int FilaVazia(const tNo *fila){
+    return  fila->proximo == NULL;
+}
+
+void Acrescenta(tNo *fila, tElemento item){
+    tNo *novoitem = getNo(item);
 
     if(FilaVazia(fila)){
-        printf("\n Fila e vazia");
+        printf("\n A fila esta vazia");
     }
 
-    while(tremovido->inicio->proximo != NULL){
-        printf("\n %d", tremovido->fim->e);
-        tremovido = tremovido->fim->proximo;
+    if(inicio == NULL){
+        inicio = fim = novoitem;
+    } else {
+        fim->proximo = novoitem;
+        fim = novoitem;
     }
 
-    free(tremovido);
+
 }
 
+tElemento Retira(tNo *fila){
+    if(FilaVazia(fila)){
+        printf("\n A fila esta vazia");
+    }
 
+    tNo *primeiro;
+
+    printf("\n Item removido: %d", *inicio);
+
+    primeiro = inicio;
+
+    inicio = inicio->proximo;
+
+    if(inicio == NULL){
+        fim = NULL;
+    }
+
+    free(primeiro);
+}
 
 

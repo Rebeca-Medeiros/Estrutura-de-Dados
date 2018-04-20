@@ -8,21 +8,19 @@ typedef struct No{
     struct No *proximo;
 } tNo;
 
-typedef struct{
-    tNo *inicio;
-    tNo *fim;
-} tFila;
-
+tNo *inicio;
+tNo *fim;
 //operacoes essenciais
+extern tNo *getNo(tElemento v);
 
-extern void CriaFila(tFila *fila);
+extern void CriaFila(const tNo **fila);
 
-extern int FilaVazia(const tFila *fila);
+extern int FilaVazia(const tNo *fila);
 
-//extern tElemento ElementoFrente(const tFila *fila);
+extern tElemento ElementoFrente(const tNo *fila);
 
-extern void Acrescenta(tFila *fila, tElemento item);
+extern void Acrescenta(tNo *fila, tElemento item);
 
-extern tElemento Retira(tFila *fila);
+extern tElemento Retira(tNo *fila);
 
 #endif // FILAENCADEADA_H
