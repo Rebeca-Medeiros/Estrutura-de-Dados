@@ -2,49 +2,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void CriaPilha(tPilha *pilha){
-    //Pilha->topo = NULL;
+tNo *getNO(tElemento v){
+    tNo *n;
 
-    pilha = (tPilha *) malloc(sizeof(tPilha));
+    n = malloc(sizeof(tNo));
 
-    /*if(Pilha == NULL){
-        printf("\n Hello World!");
-    } else {
-        Pilha->topo->proximo = NULL;
-        printf("\n CBX");
-    }*/
+    if(n != NULL){
+        n->e = v;
+        n->proximo = NULL;
+    }
+
+    return n;
 }
 
-int PilhaVazia(const tPilha *pilha){
-    if(pilha->topo == NULL){
+void CriaPilha(tNo **pilha){
+    *pilha = NULL;
+}
+
+tElemento ElementoTopo(const tNo *pilha){
+    const tNo *topo = pilha;
+
+    printf("\n Primeiro elemento: %d", topo->e);
+
+}
+
+int PilhaVazia(const tNo *pilha){
+    if(pilha->proximo == NULL){
         printf("\n A pilha esta vazia!");
+        return 1;
     }
 }
 
-void Empilha(tPilha *pilha, tElemento item){
-    tPilha *novo;
+void Empilha(tNo *pilha, tElemento item){
+    tNo *newtopo = getNO(item);
 
-    novo = (tPilha*) malloc(sizeof(tPilha));
-    novo->topo->e = item;
-
-    if(pilha->topo == NULL){
-        novo->topo->proximo = NULL;
+    if(newtopo == NULL){
+        newtopo->proximo = NULL;
     } else {
-        novo->topo->proximo = novo->topo;
+        newtopo->proximo = pilha;
     }
 
-    novo->topo = novo;
-    printf("\n Empilhado");
+    pilha = newtopo;
+
 }
 
-tElemento Desempilha(tPilha *pilha){
-    tPilha *tremovido;
+tElemento Desempilha(tNo *pilha){
+    tNo *topo;
 
-    printf("\n Item removido: %d", tremovido->topo->e);
+    printf("\n Item removido: %d", topo->e);
 
-    pilha->topo = tremovido->topo->proximo;
+    pilha = topo->proximo;
 
-    free(tremovido);
+    free(topo);
 }
 
 

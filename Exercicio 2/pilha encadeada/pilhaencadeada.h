@@ -9,23 +9,19 @@ typedef struct No{
     tElemento e;
     struct no *proximo;
 } tNo;
-
-typedef struct{
-    tNo *topo;
-} tPilha;
-
 //fim das structs
+extern tNo *getNO(tElemento v);
 
 //operações essenciais
-extern void CriaPilha(tPilha *pilha);//ok
+extern void CriaPilha(tNo **pilha);
 
-extern int PilhaVazia(const tPilha *pilha);//ok
+extern int PilhaVazia(const tNo *pilha);
 
-extern tElemento ElementoTopo();
+extern tElemento ElementoTopo(const tNo *pilha);
 
-extern void Empilha(tPilha *pilha, tElemento item);
+extern void Empilha(tNo *pilha, tElemento item);
 
-extern tElemento Desempilha(tPilha *pilha);
+extern tElemento Desempilha(tNo *pilha);
 
 #endif // PILHAENCADEADA_H
 

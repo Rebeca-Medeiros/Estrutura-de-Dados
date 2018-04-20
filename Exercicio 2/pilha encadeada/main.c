@@ -6,13 +6,13 @@ void ApresentaMenu(){
     printf("        MENU        "
            "\n\t 1 - Empilhar"
            "\n\t 2 - Desempilhar"
-           //"\n\t 3 - Exibir pilha"
+           "\n\t 3 - Elemento do topo"
            "\n\t 4 - Sair");
 }
 
 int main()
 {
-    tPilha p;
+    tNo p;
 
     ApresentaMenu();
 
@@ -45,11 +45,11 @@ int main()
 
                 break;
             case 3:
-                //Exibe
+                ElementoTopo(&p);
 
                 break;
             default:
-                printf("\n Opcao invalida");
+                //printf("\n Opcao invalida");
                 break;
         }
 
