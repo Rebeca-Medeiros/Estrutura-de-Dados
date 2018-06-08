@@ -59,6 +59,27 @@ int InsereEmOrdem(tArray *lista, tElementos elemento){
     return InsereElemento(lista, elemento, indice);
 }
 
+tElementos RemoverElemento(tArray *lista, int indice){
+    tElementos removido;
+
+    if(indice < 0 || indice >= lista->nElementos){
+        printf("\n Posicao nao existe");
+        exit(1);
+    }
+
+    removido = lista->numeros[indice];
+
+    int i;
+
+    for(i = indice; i < lista->nElementos - 1; i++){
+        lista->numeros[i] = lista->numeros[i + 1];
+    }
+
+    --lista->nElementos;
+
+    return removido;
+}
+
 int ListaVazia(const tArray *lista){
     return lista->nElementos == 0; // Se for igual a zero lista esta vazia
 }

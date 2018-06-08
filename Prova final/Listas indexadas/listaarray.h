@@ -20,6 +20,8 @@ extern int InsereEmOrdem(tArray *lista, tElementos elemento);
 
 extern tElementos ObtemElemento(const tArray *lista, int indice);
 
+extern tElementos RemoverElemento(tArray *lista, int indice);
+
 extern int ListaVazia(const tArray *lista);
 
 extern void ExibirLista(const tArray *lista);
